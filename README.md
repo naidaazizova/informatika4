@@ -9,20 +9,20 @@
    
    После этого мы запускаем Docker:
 
-3. Создаем отдельную папку для выполнения этой лабораторной и сразу переходим в нее с помощью команд:
+2. Создаем отдельную папку для выполнения этой лабораторной и сразу переходим в нее с помощью команд:
    ```
    mkdir docker_project
    cd docker_project
    ```
-4. Создаем файл Dockerfile внутри нашей папки docker_project:
+3. Создаем файл Dockerfile внутри нашей папки docker_project:
    ```
    touch Dockerfile
    ```
-5. Открываем наш созданный файл для редактирования:
+4. Открываем наш созданный файл для редактирования:
    ```
    nano Dockerfile
    ```
-6. В файле пишем следующие команды для того чтобы выполнить задание:
+5. В файле пишем следующие команды для того чтобы выполнить задание:
    ```
     FROM debian:latest
 
@@ -49,11 +49,11 @@
 
 `CMD` задает команду, которая будет выполнена при запуске контейнера.
 
-7. Затем собираем docker-образ с помощью команды `docker build -t aafire:latest .`:
+6. Затем собираем docker-образ с помощью команды `docker build -t aafire:latest .`:
    
    <img width="889" alt="Снимок экрана 2024-11-22 в 18 28 05" src="https://github.com/user-attachments/assets/d5166bdf-7404-4e2a-9555-ac8a750a319a">
 
-8. Запускаем первый и второй контейнеры с помощью этих команд:
+7. Запускаем первый и второй контейнеры с помощью этих команд:
    ```
    docker run -dit --name container1 aafire
    docker run -dit --name container2 aafire
@@ -62,25 +62,28 @@
    
    <img width="1262" alt="Снимок экрана 2024-11-22 в 18 27 02" src="https://github.com/user-attachments/assets/3d816a06-89c4-49e6-86be-ff478c6be8ee">
 
-9. Создаем пользовательскую сеть Docker
+8. Создаем пользовательскую сеть Docker
     ```
    docker network create myNetwork
    ```
-11. Подключаем контейнеры к этой сети
+9. Подключаем контейнеры к этой сети
     ```
      docker network connect myNetwork container1
      docker network connect myNetwork container2
      ```
-12. Открываем терминал внутри первого контейнера
+10. Открываем терминал внутри первого контейнера
      ```
      docker exec -it container1 bash
      ```   
-13. Затем проверяем связь с container2:\
+11. Затем проверяем связь с container2:\
     Узнаем IP-адрес второго контейнера с помощью команды `docker network inspect myNetwork`
     
     <img width="890" alt="Снимок экрана 2024-11-22 в 18 32 09" src="https://github.com/user-attachments/assets/a5e1b352-d1ac-411b-926b-c06ea176afcc">
 
     Затем выполняем эту команду:
+    ```
+     ping <IP-адрес второго контейнера>
+     ```
 
     <img width="889" alt="Снимок экрана 2024-11-22 в 18 33 55" src="https://github.com/user-attachments/assets/fc4e9d1d-925d-449c-b3b5-88a70a5d495c">
 
