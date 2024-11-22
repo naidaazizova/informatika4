@@ -62,7 +62,7 @@
    
    <img width="1262" alt="Снимок экрана 2024-11-22 в 18 27 02" src="https://github.com/user-attachments/assets/3d816a06-89c4-49e6-86be-ff478c6be8ee">
 
-10. Создаем пользовательскую сеть Docker
+9. Создаем пользовательскую сеть Docker
     ```
    docker network create myNetwork
    ```
